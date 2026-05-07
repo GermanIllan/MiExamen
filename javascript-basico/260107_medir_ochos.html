@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../MiExamen.css">
+    <!--  La prueba tecnica consistió en resolver el siguiente enunciado: 
+      "crea una función que reciba un número como parámetro de entrada y te devuelva un entero que 
+    represente el número de círculos que contiene el parámetro de entrada (que es un numero, posiblemente de varias cifras)"  -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1>Contador de Círculos</h1>
+            <div class="input-group">
+                <input id="inpt1" type="number" placeholder="Introduce un número">
+            </div>
+            <button onclick="contarCirculos()">Calcular</button>
+            <p id="resultado" style="margin-top: 20px; font-weight: bold;"></p>
+        </div>
+    </div>
+
+    <script>
+        function contarCirculos() {
+            const num = document.getElementById("inpt1").value;
+            const mapaCirculos = {
+                '0': 1, '1': 0, '2': 0, '3': 0, '4': 1,
+                '5': 0, '6': 1, '7': 0, '8': 2, '9': 1
+            };
+            
+            let total = 0;
+            const strNum = num.toString();
+
+            for (let i = 0; i < strNum.length; i++) {
+                const digito = strNum[i];
+                if (mapaCirculos[digito] !== undefined) {
+                    total += mapaCirculos[digito];
+                }
+            }
+
+            document.getElementById("resultado").innerHTML = "Total de círculos: " + total;
+        }
+    </script>
+</body>
+</html>

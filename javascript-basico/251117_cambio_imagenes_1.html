@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <img id="imagen" src="img/lekumberri-navarra.jpg" onmouseover="entrar()" onmouseout="salir()">
+
+   
+    <!--// A Evento desde Etiqueta <button  onclick="cambiar()">CAMBIAR</button> -->
+
+    <button id="btn1">CAMBIAR</button>
+
+
+
+    <script>
+       const fotoNavarra=document.querySelector("#imagen");
+
+       function entrar(){
+         
+        fotoNavarra.setAttribute("src","img/ujue-navarra.jpg");
+
+       }
+       
+       function salir(){
+
+        fotoNavarra.setAttribute("src","img/lekumberri-navarra.jpg");
+
+       }
+
+
+        const boton=document.querySelector("button");
+
+        // B - Evento desde metodo addEventListener()
+        boton.addEventListener("click", cambiar, true);
+
+        // C - Evento desde metodo del objeto. Tambien podemos desplegar el metodo onclick desde el objeto del DOM,y asignarle una funcion.
+        //boton.onclick=cambiar;
+
+
+        function cambiar(event){
+            
+            // Podemos pedirle al objeto event, que "capture" algun elemento del evento y que
+            // lo publique o almacene en una variable
+            console.log(event.target.id);
+
+           let imagenActual=fotoNavarra.getAttribute("src");
+
+           //alert(imagenActual);
+            
+           let imagenLekumberri="img/lekumberri-navarra.jpg";
+           let imagenUjue="img/ujue-navarra.jpg";
+
+          // CONDICIONAL IF ELSE
+                            
+                            if(imagenActual==imagenLekumberri)  {
+
+                                fotoNavarra.setAttribute("src", imagenUjue);
+
+                            } else {  
+                                fotoNavarra.setAttribute("src", imagenLekumberri);
+
+                            }
+                                
+          //CONDICIONAL TERNARIA
+                     /*
+                      // condicion? Respuesta Positiva : Respuesta Negativa ;
+
+
+                        let imagenFinal=imagenActual==imagenLekumberri?imagenUjue : imagenLekumberri;
+                
+                        fotoNavarra.setAttribute("src", imagenFinal);
+                      */
+
+            
+        }
+
+
+    </script>
+</body>
+</html>

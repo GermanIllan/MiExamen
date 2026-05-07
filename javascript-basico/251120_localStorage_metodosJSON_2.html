@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Segunda parte de este innovador archivo que muestra y recupera datos de storage</h2>
+<p id="demo"></p>
+<div id="muestra">  </div>
+
+
+
+<script>
+
+const objeto2JSON=localStorage.getItem("claveRecuperacion002");
+const parrafo=document.getElementById("demo")
+const cajaDiv=document.getElementById("muestra");
+
+if (objeto2JSON) {
+    try {
+        const objeto2Javascript = JSON.parse(objeto2JSON);
+        parrafo.innerHTML = "Nombre recuperado: " + objeto2Javascript.nombre;
+        cajaDiv.innerHTML = "Edad recuperada: " + objeto2Javascript.edad;
+        
+        // Se comenta el borrado para que los datos persistan en el examen
+        // localStorage.removeItem("claveRecuperacion002");
+    } catch (e) {
+        console.error("Error al parsear el JSON:", e);
+    }
+} else {
+    parrafo.innerHTML = "No hay datos disponibles.";
+}
+
+</script>
+
+</body>
+</html>

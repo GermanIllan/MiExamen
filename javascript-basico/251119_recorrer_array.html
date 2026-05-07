@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+      /* 1 - reset   */
+
+   * {margin: 0;
+         padding: 0;}
+      
+      ul {list-style: none;
+          margin-left: 0;}
+
+      a {text-decoration: none;
+         color: #210303;}
+
+
+      /* 2 -codigo pagina   */
+   .contenedor {width: 30%;
+    min-height: 15rem;
+                background-color: aqua;}
+
+    .centrado  {margin: 0 auto;}
+
+    section {min-height: 25rem;
+              background-color: rgb(131, 170, 69);}
+
+    section:first-child {display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        }
+
+    article {width: 45%;
+            min-height: 3rem;
+            background-color: rgb(236, 207, 190);
+            margin-top: 1.2;}
+
+    article:first-child {display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        align-items: center;
+                        padding: 1rem;
+
+
+    }
+    button, input {width: 7rem;}
+
+  
+
+    </style>
+</head>
+<body>
+<div class="contenedor centrado">
+   <section>
+ 
+    <article class="centrado" id="entradaDatos">
+        
+        <input id="inpt" type="text" >
+       
+        <button id="btn1" onclick="procesar()">PROCESAR - RENDERIZAR</button>
+    </article>
+
+    <article class="centrado" id="salidaDatos"></article>
+   </section>
+</div> 
+<script>
+
+    const cajaSalida = document.querySelector("#salidaDatos");
+    const inputFruta = document.querySelector("#inpt"); // Referencia al campo de entrada
+
+    // Declaramos el array de frutas fuera de la función para que persista entre llamadas
+    // y podamos añadir nuevas frutas.
+    let frutas = ["piña", "fresa", "kiwi", "naranja"];
+
+    function procesar(){    
+        let result = "";
+
+        const nuevaFruta = inputFruta.value.trim(); // Obtenemos el valor del input y eliminamos espacios
+
+        if (nuevaFruta !== "") { // Si el input no está vacío, añadimos la fruta
+            frutas.push(nuevaFruta);
+            inputFruta.value = ""; // Limpiamos el campo de entrada
+        }
+
+        // 1- FOR (comentado)
+        /*
+        for(let i=0;i<frutas.length;i++){
+            result+=`<li> ${frutas[i]} </li>`;
+        }
+        */
+        // 2- FOR OF (comentado)
+        /*
+        for( let valor of frutas ) {
+            result+=`<li> La fruta es ${valor} </li>`;
+        }
+        */
+        // 2- FOR IN (comentado)
+        /*
+        for(let index in frutas) {
+            result+=`<li> El indice es ${index}</li>`;
+        }
+        */
+        // 3- FOR IN en Objetos (comentado)
+        /*
+        const persona= {nombre: "Carlos", edad: 34, coche:true }
+        for(let clave in persona) {
+            result+=`<li> ${clave} ... ${persona[clave]}</li>`;
+        }
+        */
+        // 4- FOREACH en Arrays. Recorre arrays de elementos array.foreach(function(value, index, array){ CODIGO })
+        // https://4geeks.com/es/how-to/metodo-foreach-javascript
+
+        result += "<ul>";
+        
+        // El 'indice' es proporcionado automáticamente por forEach, no necesitas cambiarlo.
+        frutas.forEach(function(valor, indice) { // Función clásica
+            result += `<li>El índice <strong>${indice}</strong> refleja la fruta <strong>${valor}</strong></li>`;
+        });
+        
+        result += "</ul>";
+
+        cajaSalida.innerHTML = result;
+    }
+</script>
+    
+</body>
+
+</html>

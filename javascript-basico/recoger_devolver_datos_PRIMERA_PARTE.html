@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   .contenedor {width: 30%;
+    min-height: 15rem;
+                background-color: aqua;}
+
+    .centrado  {margin: 0 auto;}
+
+    section {min-height: 12rem;
+              background-color: blue;}
+
+    section:first-child {display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        }
+
+    article {width: 45%;
+            height: 3rem;
+            background-color: rgb(196, 231, 161);
+            margin-top: 1.2;}
+
+    article:first-child {display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        align-items: center;
+                        padding: 1rem;
+
+
+    }
+    button, input {width: 7rem;}
+
+  
+
+    </style>
+</head>
+<body>
+<div class="contenedor centrado">
+   <section>
+ 
+    <article class="centrado" id="entradaDatos">
+        
+        <input id="inpt" type="number" >
+       
+        <button id="btn1" onclick="procesar()">PROCESAR</button>
+    </article>
+
+    <article class="centrado" id="salidaDatos">
+
+
+
+
+    </article>
+
+
+   </section>
+
+
+</div>
+    
+<script>
+
+ /*  Entrada y salida de datos  */
+
+   const entradaDatos=document.querySelector("#inpt");
+
+    function procesar(){
+
+        let valorEntrada= entradaDatos.value;
+         
+          //  alert(valorEntrada);
+
+         valorEntradaNumero=parseInt(valorEntrada);
+        //alert("Hola Mundo");
+
+
+
+        let numero=12 + valorEntradaNumero;
+
+        let resultado=`<p> Esto es un ${numero} </p>`;
+
+        document.getElementById("salidaDatos").innerHTML=resultado;
+
+
+    }
+
+/*   PRIMERA PARTE del codigo de Javacript
+- onclick (EVENTOS)=> Evento de click que permite hacer la llamada de una funcion que esta expresada en el script
+- function (FUNCIONES) => Una funcion agrupa unas tareas de codigo en una declaracion con la sintaxis funtion NOMBRE (){}
+- document => Objeto que representa el documento de la pagina. Contiene otros objetos, que contiene otros objetos (mas pequeños) metodos/acciones y atributos/caracteristicas.
+- getElementById (DOM)=> Metodo que "recoje/señala" un elemento del HTML, mediante su id, que recoje como parametros entre parentesis
+- innerTEXT => Metodo que permite asignar por el operador igual un valor de salida que sea un valor literal o una variable (como "resultado")
+- innerHTML => Metodo que permite asignar (por el operador igual) una estructura de texto y html que se reconozca como lenguaje de marcas.
+- Let => Palabra reservada, que permite declarar y crear una variable. Hueco de memoria que contiene un valor cambiante (dinamico).
+- + => Operador de concatenacion para unir distintas partes (Strings y variables) que se almacenan en una variable.
+- alert() => Metodo predefinido del sistema que crea una ventana modal de alerta con un mensaje de texto.
+
+Javascript es una lenguaje de tipado dinamico, no se declara el tipo de dato cuando se crea (String, Integer, Float, Boolean..)
+Esta situacion permite una sintaxis mas accesible pero plantea carencias que pueden crear errores. Por ese motivo se creo Typescript.
+*/
+/*   SEGUNDA PARTE del codigo de Javacript
+- querySelector(DOM) => Metodo que "recoje/señala" un elemento del HTML,a traves de su selector css. Hay que colocar el elemento css que lo identifique.
+  Para clase, etiqueto o id ".principal", "main div p", "#inpt1".
+- const  => Palabra reservada que permite declarar una constante. Aunque tambien es utilizada para variales complejas, como objetos del DOM, colecciones de listas
+  como arrays  objetos literales.
+- value  => Es un atributo del objeto del DOM, que señala en una etiqueta de formulario, el valor que recoje del usuario
+- 
+
+
+*/
+
+</script>
+</body>
+
+</html>
+
+
+
+
+

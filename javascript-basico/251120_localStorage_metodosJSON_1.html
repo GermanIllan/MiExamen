@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>Primera en innvadorimsima parte de la funcion en java que almacena datos innovadores</h2>
+    <input type="text" id="nombreInput" placeholder="Nombre">
+    <input type="number" id="edadInput" placeholder="Edad">
+    <button onclick="guardarDatos()">Guardar Datos</button>
+
+    <p id="demo"></p>
+    <div id="muestra"> </div>
+
+    <script>
+        function guardarDatos() {
+            const nombre = document.getElementById("nombreInput").value;
+            const edad = document.getElementById("edadInput").value;
+
+            const personaObjeto = {
+                nombre: nombre || "Sin nombre",
+                edad: edad || 0,
+                coche: true
+            }
+
+            const personaJSON = JSON.stringify(personaObjeto);
+            localStorage.setItem("claveRecuperacion002", personaJSON);
+
+            document.getElementById("demo").innerHTML = "¡Datos guardados con éxito!";
+            document.getElementById("muestra").innerHTML = "JSON en storage: " + personaJSON;
+        }
+    </script>
+</body>
+</html>

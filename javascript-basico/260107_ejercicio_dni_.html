@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--
+    Comprobar la letra del dni
+
+   TAREAS
+    1-
+    Crear un script que permita hacer la validacion del valor del dni, separando la parte numerica de la letra y
+    comprobando si el numero corresponde a la letra
+    El numero del dni, dividido por 23, arroja un resto que indica la posicion en el array de la letra correspondiente
+    
+    El array de elementos del dni es 
+    const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+
+    
+    2-
+    Validar tambien que el digito correspondiente a la letra no sea un numero
+    Y que la parte numerica si sea negativo, ni sea superior a 99999999
+    
+    
+    -->
+  </head>
+  <body>
+    <div class="contenedor centrado">
+      <section id="uno">
+        <h3>Coloca tu DNI</h3>
+        <p></p>
+        <label>DNI</label><input type="text" id="inpt1" value="45362783" />
+        <p></p>
+
+        <button id="btn1">COMPROBAR DNI</button>
+      </section>
+    </div>
+    <script>
+     const caja=document.getElementById("inpt1");
+     const boton=document.getElementById("btn1");
+     const letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+
+
+     boton.addEventListener("click", comprobar);
+
+     function comprobar(){
+
+     let valor=caja.value;
+
+     console.log(valor);
+
+     let numero=valor.slice(0, valor.length - 1);
+
+         numero=parseInt(numero);
+      
+     let letra=valor.charAt(valor.length - 1).toUpperCase();
+
+    
+     alert(letra);
+
+
+
+         
+                  
+                  
+      if(numero>99999999 || numero<0){ alert("numero fuera de rango")}
+        else {   
+
+      let resto= numero%23;
+
+      let letraCorrecta=letras[resto];
+     
+      if(letra==letraCorrecta){ alert("la letra y el numero coinciden")}
+
+      else {alert("no coinciden letra y numero. La letra correcta es  "+letraCorrecta)}
+      
+      //console.log(resto); 
+
+      //console.log(letras[resto]);
+      
+
+
+      }
+
+
+
+     }
+      
+    </script>
+  </body>
+</html>

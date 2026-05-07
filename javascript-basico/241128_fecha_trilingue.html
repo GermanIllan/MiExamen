@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Mes en curso</title>
+</head>
+
+<body>
+  <select id="selector">
+    <option value="nada">Selecciona un idioma</option>
+    <option value="es">Castellano</option>
+    <option value="eus">Euskara</option>
+    <option value="en">English</option>
+  </select>
+
+  <p id="demo"></p>
+
+  <script>
+    const cajaIdioma = document.getElementById("selector");
+    const salidaDatos = document.getElementById("demo");
+
+    cajaIdioma.addEventListener("change", procesar);
+
+    function procesar() {
+
+      let idioma = cajaIdioma.value;
+
+     //console.log(idioma);
+
+      const fechaActual = new Date();
+      let diaSemana = fechaActual.getDay();
+
+      //console.log(diaSemana);
+      //const castellano = ["d", "l", "m", "x", "j", "v", "s"];
+
+
+      const castellano = [
+        "Domingo",
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado",
+      ];
+      const euskera = [
+        "Igandea",
+        "Astelehena",
+        "Asteartea",
+        "Asteazkena",
+        "Osteguna",
+        "Ostirala",
+        "Larunbata",
+      ];
+      const ingles = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      
+        let result="";
+
+      switch (idioma) {
+        case "en": result=(ingles[diaSemana])
+
+          break;
+        case "eus":  result=(euskera[diaSemana])
+
+          break;
+        case "es":  result=(castellano[diaSemana])
+          break;
+        default:
+          break;
+      }
+
+        //console.log(castellano[diaSemana]);
+
+
+       salidaDatos.innerHTML=result;
+
+
+    }
+
+
+
+  </script>
+</body>
+
+</html>

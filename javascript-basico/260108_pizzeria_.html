@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzeria LA INNOVADORA Pizzeria</title>
+    <link rel="stylesheet" href="../MiExamen.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <h1>Pedido de Pizza</h1>
+        <div class="input-group">
+          <label>Tipo de Masa:</label>
+          <input type="text" id="masa" value="Nueva masa receta innovada">
+        </div>
+        <div class="input-group">
+          <label>Base:</label>
+          <input type="text" id="base" value="base de queso">
+        </div>
+        <div class="input-group">
+          <label>Ingredientes (separados por coma):</label>
+          <textarea id="ingredientes" placeholder="ej: jamón, piña, pepperoni"></textarea>
+        </div>
+        <button id="btnPedido">Realizar Pedido</button>
+        <p id="resultado" style="margin-top: 20px; color: #333;"></p>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('btnPedido').addEventListener('click', () => {
+        const masa = document.getElementById('masa').value;
+        const base = document.getElementById('base').value;
+        const ingredientes = document.getElementById('ingredientes').value;
+
+        const mensaje = `La pizza va a tener ${masa} y ${base} con los ingredientes que tenemos a continuación: ${ingredientes}`;
+        
+        document.getElementById('resultado').innerText = mensaje;
+      });
+    </script>
+  </body>
+</html>
