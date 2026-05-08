@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Oculta el mensaje después de 3 segundos
                 setTimeout(() => {
                     floatingMessage.classList.remove('show');
+                    form.reset(); // Limpia los campos tras el éxito
                 }, 3000);
             }
         }

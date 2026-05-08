@@ -46,25 +46,14 @@
 
      function comprobar(){
 
-     let valor=caja.value;
-
-     console.log(valor);
-
+     let valor=caja.value.trim();
+     if (valor.length < 2) return alert("DNI no válido");
+     
      let numero=valor.slice(0, valor.length - 1);
-
-         numero=parseInt(numero);
-      
+     numero=parseInt(numero);
      let letra=valor.charAt(valor.length - 1).toUpperCase();
 
-    
-     alert(letra);
-
-
-
-         
-                  
-                  
-      if(numero>99999999 || numero<0){ alert("numero fuera de rango")}
+      if(isNaN(numero) || numero>99999999 || numero<0){ alert("Número fuera de rango o inválido")}
         else {   
 
       let resto= numero%23;
